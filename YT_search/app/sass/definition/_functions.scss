@@ -1,0 +1,153 @@
+//- ### ### ### ### ### ### ### ###
+//- FUNCTIONS OVERVIEW (please keep updated)
+//- ### ### ### ### ### ### ###
+/*
+-
++ size($width, $height: false)
++ maxSize($width, $height: false)
++ clearfix
++ flex($direction: row, $wrap: wrap, $justify: center)
++ flexItem($basis: auto, $shrink: 1, $grow: 0)
++ columns($type)
+--- CONVERT NUMBER(nuber without units!!!) TO REM(output includes rem units)
++ toRem($number)
+--- GENERATOR FOR DEFAULT BUTTONS (normal, inverted, active)
+makeBtn($bg: $white, $hoverBg: $white, $inverted: false)
+--- GENERATE UTILS FOR COLOR / BACKGROUND COLOR
++ colorUtils($prefix, [...$colors])
+*/
+
+
+//- ### ### ### SIZE
+@mixin size($width, $height: false) {
+  width: $width;
+  height: if($height, $height, $width);
+}
+
+//- ### ### ### MAX WIDTH / HEIGHT
+@mixin maxSize($width, $height: false) {
+  max-width: $width;
+  max-height: if($height, $height, $width);
+}
+
+//- ### ### ### CLEARFIX
+@mixin clearfix {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+//- ### ### ### FLEXBOX
+@mixin flex($direction: row, $wrap: wrap, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+}
+
+@mixin flexItem($basis: auto, $shrink: 1, $grow: 0) {
+  flex-basis: $basis;
+  flex-shrink: $shrink;
+  flex-grow: $grow;
+}
+
+//- ### ### ### COLUMNS
+@mixin columns($type) {
+  $columns: 12;
+  $column-width: 8.3333%;
+  @for $i from 1 through $columns {
+    .col#{$type}-#{$i} {
+      @if $i == $columns {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 100%;
+        width: 100%;
+        max-width: round($column-width * $i);
+      } @else {
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: $column-width * $i;
+        max-width: $column-width * $i;
+      }
+    }
+  }
+}
+
+//- ### ### ### ROUND NUMBER
+@function pow($x, $n) {
+  $ret: 1;
+
+  @if $n >= 0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
+    }
+  } @else {
+    @for $i from $n to 0 {
+      $ret: $ret / $x;
+    }
+  }
+  @return $ret;
+}
+
+@function precision-round($float, $digits) {
+  $sass-precision: 5;
+
+  @if $digits > $sass-precision {
+    @warn "Sass sets default precision to #{$sass-precision} digits, and there is no way to change that for now."
+    + "The returned number will have #{$sass-precision} digits, even if you asked for `#{$digits}`."
+    + "See github.com/sass/sass/issues/1122 for further informations.";
+  }
+
+  $pow: pow(10, $digits);
+
+  @return round($float * $pow) / $pow;
+}
+// end round number
+
+//- ### ### ### CALC PX TO REM
+@function toRem($number) {
+  $converted: $number / $defaultFontSize;
+  $rounded: precision-round($converted, 3);
+  @return $rounded+rem;
+}
+
+//- ### ### ### BUTTON GENERATOR
+@mixin makeBtn($bg: $white, $hoverBg: $white, $inverted: false, $noHover: false) {
+  border: 1px solid $bg;
+  @if $inverted {
+    background-color: $hoverBg;
+    color: $bg;
+  } @else {
+    background-color: $bg;
+    color: $hoverBg;
+  }
+  transition: color .1s linear, background-color .3s linear, border .3s linear;
+  @if not ($noHover == true) {
+    &:hover {
+      @if $inverted {
+        background-color: $bg;
+        @if $hoverBg == transparent {
+          color: $white;
+        } @else {
+          color: $hoverBg;
+        }
+      } @else {
+        background-color: $hoverBg;
+        color: $bg;
+      }
+    }
+    &.active {
+      @if $inverted {
+        background-color: $bg;
+        @if $hoverBg == transparent {
+          color: $white;
+        } @else {
+          color: $hoverBg;
+        }
+      } @else {
+        background-color: $hoverBg;
+        color: $bg;
+      }
+    }
+  }
+}

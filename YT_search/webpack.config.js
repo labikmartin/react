@@ -1,56 +1,56 @@
-const webpack = require('webpack');
+const webpack = require('webpack'),
       path = require('path'),
-      ExtractTextPlugin = require("extract-text-webpack-plugin"),
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
       BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 //- ### CHOOSE MODULEFOR ENVIROMENT
 let isProduction = process.env.NODE_ENV === 'production',
-    cssDev = ['style-loader', 'css-loader', 'sass-loader'],
-    cssProd = ExtractTextPlugin.extract({
-      fallback: [{
-        loader: 'style-loader',
+  cssDev = ['style-loader', 'css-loader', 'sass-loader'],
+  cssProd = ExtractTextPlugin.extract({
+    fallback: [{
+      loader: 'style-loader',
+      options: {
+        url: false,
+      }
+    }],
+    use: [
+      {
+        loader: 'css-loader',
         options: {
-          url: false,
+          sourceMap: true,
+          url: false
         }
-      }],
-      use: [
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
-            url: false
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: function () {
-              return [
-                require('precss'),
-                require('autoprefixer')
-              ];
-            }
-          }
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          plugins: function () {
+            return [
+              require('precss'),
+              require('autoprefixer')
+            ];
           }
         }
-      ]
-    }),
-    cssConf = isProduction ? cssProd : cssDev;
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true
+        }
+      }
+    ]
+  }),
+  cssConf = isProduction ? cssProd : cssDev;
 
 module.exports = {
-  entry: './app/js/app.js',
-  devtool: "#inline-source-map",
+  entry: './app/app.js',
+  devtool: 'inline-source-map',
   output: {
-     path: __dirname + '/js/',
-     filename: 'app.js',
-     sourceMapFilename: 'app.map',
-     libraryTarget: 'var',
-     library: 'utils',
+    path: __dirname + '/js/',
+    filename: 'app.js',
+    sourceMapFilename: 'app.map',
+    libraryTarget: 'var',
+    library: 'utils',
   },
   module: {
     rules: [
@@ -125,7 +125,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("../css/styles.css"),
+    new ExtractTextPlugin('../css/styles.css'),
     //- ### SERVER
     new BrowserSyncPlugin({
       host: 'localhost',

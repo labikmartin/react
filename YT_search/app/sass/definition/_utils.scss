@@ -1,0 +1,250 @@
+/*
+--- CONTENT
++ STRUCTURE
+  u-fullHeight
++ STATE
+  u-inlBlock
++ TEXT
+  u-underline
+  u-pre
+  # COLORS
+    u-clrWhite
+    u-clrGray
+    u-clrAltoGray
+    u-clrAltoGray
+    u-clrAltoGray
+    u-clrAquahazeGray
+    u-clrLightingOrange
+    u-clrCodGray
+    u-clrDoverGray
+    u-clrSunsetRed
+    u-clrFruitSaladGreen
+    u-clrCeruleanBlue
+    u-clrDodgerBlue
+    u-clrLightingOrange
+    u-clrMediumPurple
+  # FONTS
+    u-bold
+    u-i
+    u-light
+    u-regular
+    u-medium
+    u-bold
++ POSITIONING
+  # ELEMENTS
+    u-posRel
+  # TEXT
+    u-tac
+    u-tal
+    u-tar
++ BACKGROUNDS
+  u-bgTransparent
+  u-bgWhite
+  u-bgGray
+  u-bgAltoGray
+  u-bgAltoGray
+  u-bgAltoGray
+  u-bgAquahazeGray
+  u-bgLightingOrange
+  u-bgCodGray
+  u-bgDoverGray
+  u-bgSunsetRed
+  u-bgFruitSaladGreen
+  u-bgCeruleanBlue
+  u-bgDodgerBlue
+  u-bgLightingOrange
+  u-bgMediumPurple
++ SHADOWS
+  u-shadowDefault
+*/
+
+//- ### ### ### ### ### ### ### ###
+//- STRUCTURE
+//- ### ### ### ### ### ### ###
+.u-fullHeight {
+  height: 100%;
+}
+
+//- ### ### ### ### ### ### ### ###
+//- STATE
+//- ### ### ### ### ### ### ###
+.u-inlBlock {
+  display: inline-block;
+}
+
+.u-hide {
+  display: none;
+}
+
+.distantActive {
+  display: block;
+}
+
+//- ### ### ### ### ### ### ### ###
+//- TEXT
+//- ### ### ### ### ### ### ###
+.u-underline {
+  text-decoration: underline;
+}
+
+.u-pre {
+  white-space: pre-line;
+}
+
+//- ### ### ### COLORS
+//- TEXT
+.u-clrWhite {
+  color: $white;
+}
+
+.u-clrGray {
+  color: $gray;
+}
+
+.u-clrCodGray {
+  color: $codGray;
+}
+
+.u-clrDoverGray {
+  color: $doveGray;
+}
+
+.u-clrAltoGray {
+  color: $altoGray;
+}
+
+.u-clrAquahazeGray {
+  color: $aquaHazeGray;
+}
+
+.u-clrSunsetRed {
+  color: $sunsetRed;
+}
+
+.u-clrFruitSaladGreen {
+  color: $fruitSaladGreen;
+}
+
+.u-clrCeruleanBlue {
+  color: $ceruleanBlue;
+}
+
+.u-clrDodgerBlue {
+  color: $dodgerBlue;
+}
+
+.u-clrLightingOrange {
+  color: $lightingOrange;
+}
+
+.u-clrMediumPurple {
+  color: $mediumPurple;
+}
+
+//- ### ### ### FONTS
+.u-i {
+  font-style: italic;
+}
+
+.u-light {
+  @include robotoLight;
+}
+
+.u-regular {
+  @include robotoRegular;
+}
+
+.u-medium {
+  @include robotoMedium;
+}
+
+.u-bold {
+  @include robotoBold;
+}
+
+//- ### ### ### ### ### ### ### ###
+//- POSITIONING
+//- ### ### ### ### ### ### ###
+//- ### ### ### ELEMENTS
+.u-mt15 {
+  margin-top: 15px;
+}
+
+.u-posRel {
+  position: relative;
+}
+
+//- ### ### ### TEXT
+.u-tac {
+  text-align: center;
+}
+
+.u-tal {
+  text-align: left;
+}
+
+.u-tar {
+  text-align: right;
+}
+
+//- ### ### ### ### ### ### ### ###
+//- BACKGROUNDS
+//- ### ### ### ### ### ### ###
+.u-bgTransparent {
+  background-color: transparent;
+}
+
+.u-bgWhite {
+  background-color: $white;
+}
+
+.u-bgGray {
+  background-color: $gray;
+}
+
+.u-bgCodGray {
+  background-color: $codGray;
+}
+
+.u-bgDoverGray {
+  background-color: $doveGray;
+}
+
+.u-bgAltoGray {
+  background-color: $altoGray;
+}
+
+.u-bgAquahazeGray {
+  background-color: $aquaHazeGray;
+}
+
+.u-bgSunsetRed {
+  background-color: $sunsetRed;
+}
+
+.u-bgFruitSaladGreen {
+  background-color: $fruitSaladGreen;
+}
+
+.u-bgCeruleanBlue {
+  background-color: $ceruleanBlue;
+}
+
+.u-bgDodgerBlue {
+  background-color: $dodgerBlue;
+}
+
+.u-bgLightingOrange {
+  background-color: $lightingOrange;
+}
+
+.u-bgMediumPurple {
+  background-color: $mediumPurple;
+}
+
+//- ### ### ### ### ### ### ### ###
+//- SHADOWS
+//- ### ### ### ### ### ### ###
+.u-shadowDefault {
+    box-shadow: $shadowDefault;
+}

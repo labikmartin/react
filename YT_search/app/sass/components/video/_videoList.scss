@@ -1,0 +1,21 @@
+.vidList {
+  @include flex($justify: 'flex-start');
+  width: 100%;
+  margin: -5px;
+}
+
+.videoItem {
+  width: 100%;
+  color: $codGray;
+  cursor: pointer;
+  &:hover {
+    color: $ceruleanBlue;
+  }
+  &__tmb {
+
+  }
+  &__title {
+    display: block;
+    font-size: toRem(13);
+  }
+}

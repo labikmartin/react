@@ -1,0 +1,104 @@
+.grid {
+  @include flex();
+  margin: -5px;
+  // NOTE - Just be aware that when you use modifiers for positioning at "flex-direction: column" the properties are opaque to "flex-direction: row"
+  &--spaced {
+    justify-content: space-between;
+  }
+  &--spcAround {
+    justify-content: space-around;
+  }
+  &--alignL {
+    justify-content: flex-start;
+  }
+  &--alignR {
+    justify-content: flex-end;
+  }
+  &--vCenter {
+    align-items: center;
+  }
+  &--vBott {
+    align-items: flex-end;
+  }
+  &--noWrap {
+    flex-wrap: nowrap;
+  }
+  &--grow {
+    flex-grow: 1;
+    > * {
+      flex-grow: 1;
+    }
+  }
+  &--column {
+    flex-direction: column;
+    align-items: center;
+  }
+  // DIFFERENT GRIDSIZE
+  &--s {
+    margin: -10px;
+    > .col {
+      padding: 10px;
+    }
+  }
+  &--m {
+    margin: -20px;
+    > .col {
+      padding: 20px;
+    }
+  }
+  &--l {
+    margin: -10px;
+    > .col {
+      padding: 20px;
+    }
+  }
+  // GAPS
+  &--noGap {
+    margin: 0;
+  }
+  &--gapTop {
+    margin-top: 15px;
+  }
+}
+
+.container {
+  width: 900px;
+  max-width: 95%;
+  &--s {
+    width: 600px;
+  }
+}
+
+.col {
+  padding: 5px;
+}
+
+@include columns('');
+
+@media #{$maxW-1200} {
+  @include columns('-xl');
+}
+
+@media #{$maxW-1024} {
+  @include columns('-l');
+}
+
+@media #{$maxW-990} {
+  @include columns('-m');
+}
+
+@media #{$maxW-750} {
+  @include columns('-ms');
+}
+
+@media #{$maxW-660} {
+  @include columns('-mxs');
+}
+
+@media #{$maxW-460} {
+  @include columns('-s');
+}
+
+@media #{$maxW-320} {
+  @include columns('-xs');
+}

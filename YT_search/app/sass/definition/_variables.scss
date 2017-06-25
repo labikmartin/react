@@ -1,0 +1,118 @@
+//- ### ### ### ### ### ### ### ###
+//- CONTENT
+//-
+// PATHS
+// COLORS
+// MEDIA QUERIES
+// ICONS
+// SHADOWS
+
+//- ### ### ### PATHS
+$imgPath: '../content/images';
+$icoPath: '../content/icons';
+
+$defaultFontSize: 15;
+
+//- ### ### ### COLORS
+//- (pls sort them from darkest to lightest -> comment decimal value of hex | use names from http://chir.ag/projects/name-that-color/#6195ED)
+//- ### BASIC
+$black: #000;
+$gray: #808080;
+$white: #fff;
+//- ### GRAY
+$codGray: #151515; // 1 381 653 
+$doveGray: #737373; // 7 566 195 
+$frenchGray: #c2c2cc; // 12 763 852
+$altoGray: #dbdbdb; // 14 408 667 
+$aquaHazeGray: #f4f7f9; // 16 054 265 
+//- ### RED 
+$sunsetRed: #f84040; // 16 269 376
+//- ### GREEN
+$fruitSaladGreen: #4caf50; // 5 025 616  
+//- ### BLUE
+$ceruleanBlue: #11aee8; // 1 158 888 
+$dodgerBlue: #11b4f1; // 1 160 433
+$fbBlue: #3b5998; // 3 889 560
+$foamBlue: #f0fafe; // 15 792 894
+//- ### ORANGE
+$lightingOrange: #fac917; // 16 435 479 
+//- ### PURPLE
+$mediumPurple: #8550da; // 8 736 986 
+
+//- ### ### ### MEDIA QUERIES
+$maxW-1920: 'only screen and (max-width: 1920px)';
+$maxW-1200: 'only screen and (max-width: 1200px)';
+$maxW-1024: 'only screen and (max-width: 1024px)';
+$maxW-990: 'only screen and (max-width: 990px)';
+$maxW-750: 'only screen and (max-width: 750px)';
+$maxW-660: 'only screen and (max-width: 660px)';
+$maxW-460: 'only screen and (max-width: 460px)';
+$maxW-320: 'only screen and (max-width: 320px)';
+
+//- copypaste ;) > @media #{$maxW-750} {}
+
+//- ### ### ### ICONS
+//- ### GLOBAL
+// X symbol
+$XBlack: url('#{$icoPath}/global/X_black.svg');
+$XWhite: url('#{$icoPath}/global/X_white.svg');
+$XRed: url('#{$icoPath}/global/X_red.svg');
+// TIME HANDS
+$timeHandsWhite: url('#{$icoPath}/global/time_hands_white.svg');
+// MAP MARKER
+$mapMarkerDoveGray: url('#{$icoPath}/global/map_marker_dove_gray.svg');
+$mapMarkerMediumPurple: url('#{$icoPath}/global/map_marker_medium_purple.svg');
+$mapMarkerSunsetRed: url('#{$icoPath}/global/map_marker_sunset_red.svg');
+$mapMarkerDodgerBlue: url('#{$icoPath}/global/map_marker_dodger_blue.svg');
+$mapMarkerFruitGreen: url('#{$icoPath}/global/map_marker_fruit_green.svg');
+// STAR
+$starWhite: url('#{$icoPath}/global/star_white.svg');
+// FACEBOOK
+$fbWhite: url('#{$icoPath}/global/fb_white.svg');
+$fbFbBlue: url('#{$icoPath}/global/fb_blue.svg');
+// DASHBOARD
+$dashboardWhite: url('#{$icoPath}/global/dashboard_white.svg');
+$dashboardFrenchGray: url('#{$icoPath}/global/dashboard_french_gray.svg');
+$dashboardSunsetRed: url('#{$icoPath}/global/dashboard_sunset_red.svg');
+$dashboardDodgerBlue: url('#{$icoPath}/global/dashboard_dodger_blue.svg');
+// DISABLED
+$disabledWhite: url('#{$icoPath}/global/disabled_white.svg');
+$disabledFrenchGray: url('#{$icoPath}/global/disabled_french_gray.svg');
+$disabledDodgerBlue: url('#{$icoPath}/global/disabled_dodger_blue.svg');
+// DISABLED
+$infoWhite: url('#{$icoPath}/global/info_white.svg');
+$infoFrenchGray: url('#{$icoPath}/global/info_french_gray.svg');
+$infoDodgerBlue: url('#{$icoPath}/global/info_dodger_blue.svg');
+// MAGNIFIER
+$magnifierWhite: url('#{$icoPath}/global/magnifier_white.svg');
+$magnifierDodgerBlue: url('#{$icoPath}/global/magnifier_dodger_blue.svg');
+// PERSON
+$personWhite: url('#{$icoPath}/global/person_white.svg');
+$personDodgerBlue: url('#{$icoPath}/global/person_dodger_blue.svg');
+// PENCIL
+$pencilWhite: url('#{$icoPath}/global/pencil_white.svg');
+$pencilDodgerBlue: url('#{$icoPath}/global/pencil_dodger_blue.svg');
+
+//- ### BUTTONS
+// CHECKMARK
+$checkmarkWhite: url('#{$icoPath}/buttons/checkmark.svg');
+$checkmarkFruitGreen: url('#{$icoPath}/buttons/checkmark_green.svg');
+// PLUS
+$plusWhite: url('#{$icoPath}/buttons/plus_white.svg');
+$plusFruitGreen: url('#{$icoPath}/buttons/plus_mantisGreen.svg');
+$plusDodgerBlue: url('#{$icoPath}/buttons/plus_dodgerBlue.svg');
+// TRIPPLE DOT
+$trippleDotWhite: url('#{$icoPath}/buttons/tripple_dot_white.svg');
+$trippleDotDodgerBlue: url('#{$icoPath}/buttons/tripple_dot_dodger_blue.svg');
+// WHITE HAND OF SARUMAN
+$handWhite: url('#{$icoPath}/buttons/hand_white.svg');
+$handSunsetRed: url('#{$icoPath}/buttons/hand_sunsetRed.svg');
+// CAMERA
+$cameraWhite: url('#{$icoPath}/buttons/camera_white.svg');
+$cameraFrenchGray: url('#{$icoPath}/buttons/camera_french_gray.svg');
+$cameraDodgerBlue: url('#{$icoPath}/buttons/camera_dodger_blue.svg');
+
+
+//- ### BOX SHADOWS
+$shadowDefault: 0 5px 12px 0 rgba(0, 0, 0, .06);
+$shadowDefault15: 0 5px 12px 0 rgba(0, 0, 0, .15);

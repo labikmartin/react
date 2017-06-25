@@ -4,7 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "dev": "webpack -d --watch",
+    "dev": "webpack --progress --watch",
     "prod": "NODE_ENV=production webpack -p"
   },
   "repository": {
@@ -38,5 +38,11 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "webpack": "^2.6.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react-redux": "4.3.0",
+    "redux": "^3.0.4",
+    "youtube-api-search": "0.0.5"
   }
 }
