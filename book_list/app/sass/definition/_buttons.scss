@@ -1,0 +1,163 @@
+//- ### ### ### ### ### ### ### ###
+//- CONTENT (keep updated pls)
+//-
+// + FUNCTIONS
+// + COLOR VARIANTS
+// + SIZES
+// + SHAPES
+// + SPECIALS
+// + BUTTON GRID
+// + TAB BUTTONS GROUP
+
+//- ### ### ### BUTTON OVERLAY
+// adds pseudoelement ::before -> overlay over button, to achieve transition effect if button contains image, just add background-image to ::before selector
+@mixin buttonOverlay {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: auto;
+  &::before {
+    @include size(100%);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: auto;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity .3s linear;
+    z-index: 2;
+  }
+  &:hover::before {
+    opacity: 1;
+    background-color: transparent;
+  }
+  &.active::before {
+    opacity: 1;
+    background-color: transparent;
+  }
+}
+
+.btn {
+  height: toRem(35);
+  margin-top: toRem(30);
+  padding: 0 toRem(20);
+  display: inline-block;
+  border-radius: toRem(35);
+  line-height: toRem(35);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .3s linear;
+  //- ### ### ### COLOR VARIANTS
+  // add active class to apply "hover" styles
+  //- GRAY
+  &--frenchGray {
+    @include makeBtn($bg: $frenchGray, $hoverBg: $white, $inverted: false);
+    // icon color variants
+    &.btn--camera {
+      background-image: $cameraWhite;
+    }
+    &.btn--camera::before {
+      background-image: $cameraFrenchGray;
+    }  
+  }
+  //- RED
+  &--sunsetRed {
+    @include makeBtn($bg: $sunsetRed, $hoverBg: $white, $inverted: false);
+    // icon color variants
+  }
+  &--sunsetRed {
+    @include makeBtn($bg: $sunsetRed, $hoverBg: transparent, $inverted: true);
+  }
+  //- GREEN
+
+  //- BLUE
+  &--dodgerBlue {
+    @include makeBtn($bg: $dodgerBlue, $hoverBg: $white, $inverted: false);
+    // icon color variants
+    &.btn--pencil {
+      background-image: $pencilWhite;
+    }
+    &.btn--pencil::before {
+      background-image: $pencilDodgerBlue;
+    }  
+  }
+  &--dodgerBlueInv {
+    @include makeBtn($bg: $dodgerBlue, $hoverBg: transparent, $inverted: true);
+  }
+  &--fbBlue {
+    @include makeBtn($bg: $fbBlue, $hoverBg: $white, $inverted: false);
+    // icon color variants
+    &.btn--fb {
+      background-image: $fbWhite;
+    }
+    &.btn--fb::before {
+      background-image: $fbFbBlue;
+    }    
+  }
+  &--fbBlueInv {
+    @include makeBtn($bg: $fbBlue, $hoverBg: transparent, $inverted: true);
+  }  
+  //- ORANGE
+  &--lightingOrange {
+    @include makeBtn($bg: $lightingOrange, $hoverBg: $white, $inverted: false);
+    // icon color variants
+  }
+  //- ### ### ### SIZES
+  //- ### WIDTHS
+
+  //- ### HEIGHTS
+  &--tallM {
+    height: toRem(25);
+    padding: 0 toRem(15);
+    line-height: toRem(25);
+  }
+  //- ### ### ### SPECIALS
+  &--wIcon {
+    @include buttonOverlay;
+  }
+  &--icoLeft {
+    padding-left: toRem(43);
+    background-repeat: no-repeat;
+    background-position: toRem(20) center;
+    &::before {
+      padding-left: toRem(43);
+      background-repeat: no-repeat;
+      background-position: toRem(20) center;
+    }
+  }
+  &--icoRight {
+    padding-right: toRem(43);
+    background-repeat: no-repeat;
+    background-position: calc(100% - toRem(20)) center;
+    &::before {
+      padding-right: toRem(43);
+      background-repeat: no-repeat;
+      background-position: calc(100% - toRem(20)) center;
+    }
+  }
+  &--noMargin {
+    margin: 0;
+  }
+  &.distantActive {
+    display: inline-block;
+  }
+}
+
+//- ### ### ### BUTTON GRID
+.btnGrid {
+  &--noMargin {
+    .btn {
+      margin: 0;
+    }
+  }
+}
+
+//- ### ### ### TAB BUTTONS GROUP
+.tabGrp {
+  margin-top: 20px;
+  &__btn {
+    margin: 0;
+  }
+}
